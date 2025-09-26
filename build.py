@@ -11,7 +11,7 @@ ROOT_DIR = Path(__file__).parent
 PANTRY_DIR = ROOT_DIR / "pantry"
 DATA_DIR = ROOT_DIR / "data"
 
-ryland = Ryland(__file__)
+ryland = Ryland(__file__, url_root="/persian-crito-alignment/")
 
 ryland.clear_output()
 
