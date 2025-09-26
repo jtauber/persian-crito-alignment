@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crito 49e.8. Sentence 177 | Persian Crito Alignment</title>
+    <meta name="description" content="Reader for Farnoosh Shamsian's Persian Crito Alignment">
+    <link rel="stylesheet" href="/style.css?a2ad8ce0e793b9f9969e6f6a00150a18">
+  </head>
+  <body>
+    
+  <header>
+    <h1>Crito 49e.8.</h1>
+    <h2>Sentence 177</h2>
+  </header>
+
+  <nav class="pagination">
+    <div class="prev">
+      
+        <span>←</span>
+        <a href="/176.html">prev</a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="/178.html">next</a>
+        <span>→</span>
+      
+    </div>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Greek</h2>
+      <div lang="grc">
+        
+          <span class="greek-0 persian-primary-1 persian-secondary-1 persian-literal-1">Σωκράτης</span><span>. </span><span class="greek-1 persian-primary-3 persian-primary-4 persian-primary-5 persian-primary-6 persian-secondary-3 persian-secondary-4 persian-secondary-5 persian-secondary-6 persian-literal-3">ἐκ</span><span> </span><span class="greek-2 persian-primary-7 persian-secondary-7 persian-literal-4">τούτων</span><span> </span><span class="greek-3 persian-primary-2 persian-secondary-2 persian-literal-2">δὴ</span><span> </span><span class="greek-4 persian-primary-8 persian-secondary-8 persian-secondary-9 persian-literal-6">ἄθρει</span><span>.</span>
+        
+      </div>
+    </section>
+  
+    <section>
+      <h2>Persian (Primary)</h2>
+      <div lang="fa">
+        
+          <span class="persian-primary-1 greek-0">سقراط</span><span>: </span><span class="persian-primary-2 greek-3">اکنون</span><span> </span><span class="persian-primary-3 greek-1">با</span><span> </span><span class="persian-primary-4 greek-1">در</span><span> </span><span class="persian-primary-5 greek-1">نظر</span><span> </span><span class="persian-primary-6 greek-1">گرفتنِ</span><span> </span><span class="persian-primary-7 greek-2">این‌ها</span><span> </span><span class="persian-primary-8 greek-4">بسنج</span><span>:</span>
+        
+      </div>
+    </section>
+
+    <section>
+      <h2>Persian (Secondary)</h2>
+      <div lang="fa">
+        
+          <span class="persian-secondary-1 greek-0">سقراط</span><span>: </span><span class="persian-secondary-2 greek-3">پس</span><span> </span><span class="persian-secondary-3 greek-1">با</span><span> </span><span class="persian-secondary-4 greek-1">در</span><span> </span><span class="persian-secondary-5 greek-1">نظر</span><span> </span><span class="persian-secondary-6 greek-1">گرفتنِ</span><span> </span><span class="persian-secondary-7 greek-2">این‌ها</span><span> </span><span class="persian-secondary-8 greek-4">تامل</span><span> </span><span class="persian-secondary-9 greek-4">کن</span><span>.</span>
+        
+      </div>
+    </section>
+
+    <section>
+      <h2>Persian (Literal)</h2>
+      <div lang="fa">
+        
+          <span class="persian-literal-1 greek-0">سقراط</span><span>: </span><span class="persian-literal-2 greek-3">حال</span><span> </span><span class="persian-literal-3 greek-1">از</span><span> </span><span class="persian-literal-4 greek-2">این</span><span> [</span><span class="persian-literal-5">منظر</span><span>] </span><span class="persian-literal-6 greek-4">بنگر</span><span>،</span>
+        
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const spans = document.querySelectorAll('span[class]');
+
+      spans.forEach(span => {
+        span.addEventListener('mouseenter', function() {
+          const classes = this.className.split(' ');
+          
+          spans.forEach(otherSpan => {
+
+            const otherClasses = otherSpan.className.split(' ');
+            const hasSharedClass = classes.some(cls => otherClasses.includes(cls));
+
+            /* console.log('Comparing', classes, 'with', otherClasses, '->', hasSharedClass); */
+
+            if (hasSharedClass) {
+              console.log('Highlighting', otherSpan);
+              otherSpan.classList.add('highlight');
+            }
+          });
+        });
+                
+        span.addEventListener('mouseleave', function() {
+          spans.forEach(otherSpan => {
+            otherSpan.classList.remove('highlight');
+          });
+        });
+      });
+    });
+  </script>
+
+
+  </body>
+</html>

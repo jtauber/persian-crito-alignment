@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block page_title %}Crito {{ ref }} Sentence {{ sentence_id }}{% endblock %}
+
+{% block content %}
+  <header>
+    <h1>Crito {{ ref }}</h1>
+    <h2>Sentence {{ sentence_id }}</h2>
+  </header>
+
+  <nav class="pagination">
+    <div class="prev">
+      {% if prev_url %}
+        <span>←</span>
+        <a href="{{ calc_url(prev_url) }}">prev</a>
+      {% endif %}
+    </div>
+    <div class="next">
+      {% if next_url %}
+        <a href="{{ calc_url(next_url) }}">next</a>
+        <span>→</span>
+      {% endif %}
+    </div>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Greek</h2>
+      <div lang="grc">
+        {% with tokens = greek_tokens %}
+          {% include "_tokens.html" %}
+        {% endwith %}
+      </div>
+    </section>
+  
+    <section>
+      <h2>Persian (Primary)</h2>
+      <div lang="fa">
+        {% with tokens = primary_tokens %}
+          {% include "_tokens.html" %}
+        {% endwith %}
+      </div>
+    </section>
+
+    <section>
+      <h2>Persian (Secondary)</h2>
+      <div lang="fa">
+        {% with tokens = secondary_tokens %}
+          {% include "_tokens.html" %}
+        {% endwith %}
+      </div>
+    </section>
+
+    <section>
+      <h2>Persian (Literal)</h2>
+      <div lang="fa">
+        {% with tokens = literal_tokens %}
+          {% include "_tokens.html" %}
+        {% endwith %}
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const spans = document.querySelectorAll('span[class]');
+
+      spans.forEach(span => {
+        span.addEventListener('mouseenter', function() {
+          const classes = this.className.split(' ');
+          
+          spans.forEach(otherSpan => {
+
+            const otherClasses = otherSpan.className.split(' ');
+            const hasSharedClass = classes.some(cls => otherClasses.includes(cls));
+
+            /* console.log('Comparing', classes, 'with', otherClasses, '->', hasSharedClass); */
+
+            if (hasSharedClass) {
+              console.log('Highlighting', otherSpan);
+              otherSpan.classList.add('highlight');
+            }
+          });
+        });
+                
+        span.addEventListener('mouseleave', function() {
+          spans.forEach(otherSpan => {
+            otherSpan.classList.remove('highlight');
+          });
+        });
+      });
+    });
+  </script>
+
+{% endblock %}

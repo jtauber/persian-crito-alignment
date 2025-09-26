@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crito 48b.3. Sentence 128 | Persian Crito Alignment</title>
+    <meta name="description" content="Reader for Farnoosh Shamsian's Persian Crito Alignment">
+    <link rel="stylesheet" href="/style.css?a2ad8ce0e793b9f9969e6f6a00150a18">
+  </head>
+  <body>
+    
+  <header>
+    <h1>Crito 48b.3.</h1>
+    <h2>Sentence 128</h2>
+  </header>
+
+  <nav class="pagination">
+    <div class="prev">
+      
+        <span>←</span>
+        <a href="/127.html">prev</a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="/129.html">next</a>
+        <span>→</span>
+      
+    </div>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Greek</h2>
+      <div lang="grc">
+        
+          <span class="greek-1 persian-primary-3 persian-primary-5 persian-secondary-1 persian-secondary-3 persian-literal-3 persian-literal-5">φαίη</span><span> γὰρ </span><span class="greek-3 persian-primary-3 persian-primary-5 persian-secondary-1 persian-secondary-3 persian-literal-3 persian-literal-5">ἄν</span><span>, </span><span class="greek-5 persian-primary-1 persian-secondary-4 persian-literal-6">ὦ</span><span> </span><span class="greek-6 persian-primary-2 persian-secondary-5 persian-literal-7">Σώκρατες</span><span>.</span>
+        
+      </div>
+    </section>
+  
+    <section>
+      <h2>Persian (Primary)</h2>
+      <div lang="fa">
+        
+          <span class="persian-primary-1 greek-5">ای</span><span> </span><span class="persian-primary-2 greek-6">سقراط</span><span>، </span><span class="persian-primary-3 greek-1 greek-3">می‌توان</span><span> </span><span class="persian-primary-4">چنین</span><span> </span><span class="persian-primary-5 greek-1 greek-3">گفت</span><span>.</span>
+        
+      </div>
+    </section>
+
+    <section>
+      <h2>Persian (Secondary)</h2>
+      <div lang="fa">
+        
+          <span class="persian-secondary-1 greek-1 greek-3">می‌توان</span><span> </span><span class="persian-secondary-2">چنین</span><span> </span><span class="persian-secondary-3 greek-1 greek-3">گفت</span><span>، </span><span class="persian-secondary-4 greek-5">ای</span><span> </span><span class="persian-secondary-5 greek-6">سقراط</span><span>.</span>
+        
+      </div>
+    </section>
+
+    <section>
+      <h2>Persian (Literal)</h2>
+      <div lang="fa">
+        
+          <span class="persian-literal-1 greek-2">به</span><span> </span><span class="persian-literal-2 greek-2">راستی</span><span> </span><span class="persian-literal-3 greek-1 greek-3">می‌توان</span><span> [</span><span class="persian-literal-4">چنین</span><span>] </span><span class="persian-literal-5 greek-1 greek-3">گفت</span><span>، </span><span class="persian-literal-6 greek-5">ای</span><span> </span><span class="persian-literal-7 greek-6">سقراط</span><span>.</span>
+        
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const spans = document.querySelectorAll('span[class]');
+
+      spans.forEach(span => {
+        span.addEventListener('mouseenter', function() {
+          const classes = this.className.split(' ');
+          
+          spans.forEach(otherSpan => {
+
+            const otherClasses = otherSpan.className.split(' ');
+            const hasSharedClass = classes.some(cls => otherClasses.includes(cls));
+
+            /* console.log('Comparing', classes, 'with', otherClasses, '->', hasSharedClass); */
+
+            if (hasSharedClass) {
+              console.log('Highlighting', otherSpan);
+              otherSpan.classList.add('highlight');
+            }
+          });
+        });
+                
+        span.addEventListener('mouseleave', function() {
+          spans.forEach(otherSpan => {
+            otherSpan.classList.remove('highlight');
+          });
+        });
+      });
+    });
+  </script>
+
+
+  </body>
+</html>

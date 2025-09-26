@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Noto Serif", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header {
+  background: lch(35% 15 235);
+  color: lch(85% 15 235);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header > * {
+  margin: 0;
+}
+nav.pagination {
+  background: lch(25% 15 235);
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  color: lch(75% 15 235);
+}
+nav.pagination a {
+  color: inherit;
+  text-decoration: none;
+}
+nav.pagination a:hover {
+  color: #FFF;
+}
+main {
+  flex: 1;
+  display: flex;
+}
+section {
+  flex-basis: 100%;
+}
+section:not(:first-of-type) {
+  border-left: 1px solid lch(85% 15 235);
+}
+section h2 {
+  margin-top: 0;
+  background: lch(95% 10 235);
+  font-weight: normal;
+  font-size: 16pt;
+
+}
+section > * {
+  padding: 0.5rem 1rem;
+}
+section > div {
+  color: #333;
+  font-size: 16pt;
+  line-height: 1.5;
+}
+[lang="fa"] {
+  font-size: 20pt;
+  direction: rtl;
+  text-align: right;
+}
+.highlight {
+  cursor: pointer;
+  background-color: lch(92% 85 95);
+  margin: -4px;
+  border: 4px solid lch(92% 85 95 / 0.1)}

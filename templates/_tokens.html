@@ -1,0 +1,3 @@
+{%- for token in tokens -%}
+  <span{% if token.classes %} class="{{ token.classes }}"{% endif %}>{{ token.text }}</span>
+{%- endfor -%}

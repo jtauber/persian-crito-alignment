@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crito 44a.7. Sentence 31 | Persian Crito Alignment</title>
+    <meta name="description" content="Reader for Farnoosh Shamsian's Persian Crito Alignment">
+    <link rel="stylesheet" href="/style.css?a2ad8ce0e793b9f9969e6f6a00150a18">
+  </head>
+  <body>
+    
+  <header>
+    <h1>Crito 44a.7.</h1>
+    <h2>Sentence 31</h2>
+  </header>
+
+  <nav class="pagination">
+    <div class="prev">
+      
+        <span>←</span>
+        <a href="/030.html">prev</a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="/032.html">next</a>
+        <span>→</span>
+      
+    </div>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Greek</h2>
+      <div lang="grc">
+        
+          <span>καὶ </span><span class="greek-2 persian-primary-3 persian-primary-7 persian-primary-8 persian-secondary-4 persian-secondary-5 persian-literal-8 persian-literal-9">κινδυνεύεις</span><span> </span><span class="greek-3 persian-primary-1 persian-primary-2 persian-secondary-1 persian-secondary-2 persian-secondary-3 persian-literal-2">ἐν</span><span> </span><span class="greek-4 persian-primary-1 persian-primary-2 persian-secondary-1 persian-secondary-2 persian-secondary-3 persian-literal-3 persian-literal-4">καιρῷ</span><span> </span><span class="greek-5 persian-primary-1 persian-primary-2 persian-secondary-1 persian-secondary-2 persian-secondary-3 persian-literal-3 persian-literal-4">τινι</span><span> </span><span class="greek-6 persian-primary-3 persian-primary-7 persian-primary-8 persian-secondary-8 persian-secondary-9 persian-literal-5 persian-literal-6">οὐκ</span><span> </span><span class="greek-7 persian-primary-4 persian-primary-5 persian-secondary-8 persian-secondary-9 persian-literal-5 persian-literal-6">ἐγεῖραί</span><span> </span><span class="greek-8 persian-primary-6 persian-secondary-7 persian-literal-7">με</span><span>.</span>
+        
+      </div>
+    </section>
+  
+    <section>
+      <h2>Persian (Primary)</h2>
+      <div lang="fa">
+        
+          <span class="persian-primary-1 greek-3 greek-4 greek-5">چه</span><span> </span><span class="persian-primary-2 greek-3 greek-4 greek-5">بجا</span><span> </span><span class="persian-primary-3 greek-2 greek-6">از</span><span> </span><span class="persian-primary-4 greek-7">بیدار</span><span> </span><span class="persian-primary-5 greek-7">کردن</span><span> </span><span class="persian-primary-6 greek-8">من</span><span> </span><span class="persian-primary-7 greek-2 greek-6">حذر</span><span> </span><span class="persian-primary-8 greek-2 greek-6">کردی</span><span>.</span>
+        
+      </div>
+    </section>
+
+    <section>
+      <h2>Persian (Secondary)</h2>
+      <div lang="fa">
+        
+          <span class="persian-secondary-1 greek-3 greek-4 greek-5">چه</span><span> </span><span class="persian-secondary-2 greek-3 greek-4 greek-5">به</span><span> </span><span class="persian-secondary-3 greek-3 greek-4 greek-5">موقع</span><span> </span><span class="persian-secondary-4 greek-2">برآن</span><span> </span><span class="persian-secondary-5 greek-2">شدی</span><span> </span><span class="persian-secondary-6">که</span><span> </span><span class="persian-secondary-7 greek-8">مرا</span><span> </span><span class="persian-secondary-8 greek-6 greek-7">بیدار</span><span> </span><span class="persian-secondary-9 greek-6 greek-7">نگردانی</span><span>.</span>
+        
+      </div>
+    </section>
+
+    <section>
+      <h2>Persian (Literal)</h2>
+      <div lang="fa">
+        
+          <span class="persian-literal-1 greek-1">پس</span><span> </span><span class="persian-literal-2 greek-3">در</span><span> </span><span class="persian-literal-3 greek-4 greek-5">وقت</span><span> </span><span class="persian-literal-4 greek-4 greek-5">مساعدی</span><span> </span><span class="persian-literal-5 greek-6 greek-7">به</span><span> </span><span class="persian-literal-6 greek-6 greek-7">بیدارنکردن</span><span> </span><span class="persian-literal-7 greek-8">من</span><span> </span><span class="persian-literal-8 greek-2">مبادرت</span><span> </span><span class="persian-literal-9 greek-2">ورزیدی</span><span>.</span>
+        
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const spans = document.querySelectorAll('span[class]');
+
+      spans.forEach(span => {
+        span.addEventListener('mouseenter', function() {
+          const classes = this.className.split(' ');
+          
+          spans.forEach(otherSpan => {
+
+            const otherClasses = otherSpan.className.split(' ');
+            const hasSharedClass = classes.some(cls => otherClasses.includes(cls));
+
+            /* console.log('Comparing', classes, 'with', otherClasses, '->', hasSharedClass); */
+
+            if (hasSharedClass) {
+              console.log('Highlighting', otherSpan);
+              otherSpan.classList.add('highlight');
+            }
+          });
+        });
+                
+        span.addEventListener('mouseleave', function() {
+          spans.forEach(otherSpan => {
+            otherSpan.classList.remove('highlight');
+          });
+        });
+      });
+    });
+  </script>
+
+
+  </body>
+</html>
