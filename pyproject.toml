@@ -1,7 +1,7 @@
 [project]
 name = "persian-crito-aligmment"
 version = "0.1.0"
-description = "Add your description here"
+description = "Reader for Farnoosh Shamsian's Persian Crito Alignment"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
