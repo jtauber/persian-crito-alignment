@@ -24,6 +24,7 @@ def read_alignment_A(path: Path):
         elif state == 2:
             persian_tokens = []
             tokenized_persian = line.strip()
+            original_persian = full_persian
             for token in tokenized_persian.split():
                 assert "{" in token
                 assert token[-1] == "}"
@@ -38,7 +39,16 @@ def read_alignment_A(path: Path):
                     persian_tokens.append(full_persian[:f])
                     persian_tokens.append((word, idx))
                     full_persian = full_persian[f:][len(word):]
-            alignments = defaultdict(list)
+            if full_persian != "":
+                persian_tokens.append(full_persian)
+            greek_to_persian_alignments = defaultdict(list)
+            persian_to_greek_alignments = defaultdict(list)
+            if original_persian.startswith("سقراط"):
+                greek_to_persian_alignments[0].append(1)
+                persian_to_greek_alignments[1].append(0)
+            if original_persian.startswith("کریتون"):
+                greek_to_persian_alignments[0].append(1)
+                persian_to_greek_alignments[1].append(0)
             state = 3
         elif state == 3:
             if line == "":
@@ -46,7 +56,8 @@ def read_alignment_A(path: Path):
                 yield {
                     "sentence_id": sentence_id,
                     "persian_tokens": persian_tokens,
-                    "alignments": dict(alignments),
+                    "greek_to_persian_alignments": dict(greek_to_persian_alignments),
+                    "persian_to_greek_alignments": dict(persian_to_greek_alignments),
                 }
             elif line.startswith("\t"):
                 alignment = line.strip()
@@ -58,7 +69,8 @@ def read_alignment_A(path: Path):
                     elif part[0] == "{" and part[-1] == "}":
                         assert greek_id is not None
                         persian_id = int(part[1:-1])
-                        alignments[persian_id].append(greek_id)
+                        greek_to_persian_alignments[greek_id].append(persian_id)
+                        persian_to_greek_alignments[persian_id].append(greek_id)
                     else:
                         pass  # persian words
             else:
@@ -68,7 +80,8 @@ def read_alignment_A(path: Path):
     yield {
         "sentence_id": sentence_id,
         "persian_tokens": persian_tokens,
-        "alignments": dict(alignments),
+        "greek_to_persian_alignments": dict(greek_to_persian_alignments),
+        "persian_to_greek_alignments": dict(persian_to_greek_alignments),
     }
 
 
@@ -103,6 +116,10 @@ def read_alignment_B(path: Path):
         elif state == 5:
             greek_tokens = []
             tokenized_greek = line.strip()
+            if full_greek.startswith("Σωκράτης. "):
+                tokenized_greek = "Σωκράτης[0] " + tokenized_greek
+            if full_greek.startswith("Κρίτων. "):
+                tokenized_greek = "Κρίτων[0] " + tokenized_greek
             for token in tokenized_greek.split():
                 assert "[" in token
                 assert token[-1] == "]"
@@ -117,6 +134,8 @@ def read_alignment_B(path: Path):
                     greek_tokens.append(full_greek[:f])
                     greek_tokens.append((word, idx))
                     full_greek = full_greek[f:][len(word):]
+            if full_greek != "":
+                greek_tokens.append(full_greek)
             state = 7
         elif state == 7:
             persian_tokens = []
@@ -135,7 +154,10 @@ def read_alignment_B(path: Path):
                     persian_tokens.append(full_persian[:f])
                     persian_tokens.append((word, idx))
                     full_persian = full_persian[f:][len(word):]
-            alignments = defaultdict(list)
+            if full_persian != "":
+                persian_tokens.append(full_persian)
+            greek_to_persian_alignments = defaultdict(list)
+            persian_to_greek_alignments = defaultdict(list)
             state = 8
         elif state == 8:
             if line == "":
@@ -148,8 +170,10 @@ def read_alignment_B(path: Path):
                 yield {
                     "ref": ref,
                     "sentence_id": sentence_id,
+                    "greek_tokens": greek_tokens,
                     "persian_tokens": persian_tokens,
-                    "alignments": dict(alignments),
+                    "greek_to_persian_alignments": dict(greek_to_persian_alignments),
+                    "persian_to_greek_alignments": dict(persian_to_greek_alignments),
                 }
             elif line.startswith("\t"):
                 alignment = line.strip()
@@ -161,7 +185,8 @@ def read_alignment_B(path: Path):
                     elif part[0] == "{" and part[-1] == "}":
                         assert greek_id is not None
                         persian_id = int(part[1:-1])
-                        alignments[persian_id].append(greek_id)
+                        greek_to_persian_alignments[greek_id].append(persian_id)
+                        persian_to_greek_alignments[persian_id].append(greek_id)
                     else:
                         pass  # persian words
             else:
@@ -173,7 +198,8 @@ def read_alignment_B(path: Path):
         "sentence_id": sentence_id,
         "greek_tokens": greek_tokens,
         "persian_tokens": persian_tokens,
-        "alignments": dict(alignments),
+        "greek_to_persian_alignments": dict(greek_to_persian_alignments),
+        "persian_to_greek_alignments": dict(persian_to_greek_alignments),
     }
 
 
