@@ -10,9 +10,11 @@
 
   <nav class="pagination">
     <div class="prev">
+      <span>←</span>
       {% if prev_url %}
-        <span>←</span>
         <a href="{{ calc_url(prev_url) }}">prev</a>
+      {% else %}
+        <a href="{{ calc_url('/') }}">home</a>
       {% endif %}
     </div>
     <div class="next">

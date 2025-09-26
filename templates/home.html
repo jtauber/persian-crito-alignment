@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Persian Crito Alignment{% endblock %}
+
+{% block content %}
+  <header>
+    <h1>Persian Crito Alignment</h1>
+  </header>
+
+  <nav class="pagination">
+    <div class="prev">
+      &nbsp;
+    </div>
+    <div class="next">
+      <a href="calc_url('001.html')">begin</a>
+      <span>→</span>
+    </div>
+  </nav>
+
+  <main>
+    <section class="home">
+      <p>This is a reader for Farnoosh Shamsian’s Persian translations of Plato’s Crito, aligned at the token level with the Greek text.</p>
+      <p>Mouse over tokens to see their alignments highlighted in the other texts.</p>
+      <p><a class="button" href="{{ calc_url('001.html') }}">Begin reading</a></p>
+    </section>
+  </main>
+{% endblock %}

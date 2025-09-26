@@ -68,4 +68,21 @@ section > div {
   cursor: pointer;
   background-color: lch(92% 85 95);
   margin: -4px;
-  border: 4px solid lch(92% 85 95 / 0.1)}
+  border: 4px solid lch(92% 85 95 / 0.1)
+}
+section.home {
+  font-size: 18pt;
+  max-width: 800px;
+}
+a.button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  background-color: lch(35% 15 235);
+  color: lch(85% 15 235);
+  text-decoration: none;
+  border-radius: 4px;
+}
+a.button:hover {
+  background-color: lch(45% 15 235);
+  color: #FFF;
+}
